@@ -1,0 +1,16 @@
+{
+  "name": "react-native-zcash-wallet",
+  "version": "0.0.1",
+  "description": "React Native Zcash Wallet",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": ["packages/*"],
+    "nohoist": [
+        "**/react-native", "**/react-native/**",
+        "**/react-native-scripts", "**/react-native-scripts/**",
+        "**/expo", "**/expo/**"
+    ]
+  }
+}
