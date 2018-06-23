@@ -212,3 +212,32 @@ Provided you have a Zcash node running locally, you should see output such as:
   relayfee: 0.000001,
   errors: '' }
 ```
+
+#### Create React Native App
+
+Following along here:
+
+https://facebook.github.io/react-native/docs/getting-started.html
+
+```
+npm install -g create-react-native-app
+mkdir applications
+cd applications
+create-react-native-app ZcashWallet
+```
+
+Oh bother! When we try to import zest into our react native App.js
+we find out that (as of time of writing), the react package and the haste
+module map or whatnot do not know how find modules that are in the root
+node_modules as symlinks.
+
+Luckily it looks like this react-native + yarn workspaces idea is becoming
+a well worn path. There is now a video to follow to get the workspaces wired
+up for react-native:
+
+https://codedaily.io/screencasts/66/Use-Yarn-Workspaces-to-Share-Code-with-a-create-react-app-and-create-react-native-app-in-a-Monorepo
+
+In our case, let's remove the nohoist specification and see if we can
+change to this way.
+
+... *10 minutes later* ... Hallelujah. It Works™.
