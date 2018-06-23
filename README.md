@@ -42,7 +42,7 @@ developers can iterate rapidly on a large, common codebase. We may look to use
 Bazel to explicitly map the dependency graph and keep the build fast in the
 event that this repo grows very large. But, let's not get ahead of ourselves.
 
-#### Added workspaces to root `package.json`
+#### Root `package.json`
 
 Look in package.json for the workspaces. You'll see something like:
 
@@ -54,14 +54,17 @@ Look in package.json for the workspaces. You'll see something like:
     "core/*"
   ],
   "nohoist": [
-    "**/react-native", "**/react-native/**",
-    "**/react-native-scripts", "**/react-native-scripts/**",
-    "**/expo", "**/expo/**"
+    "**/react-native",
+    "**/react-native/**",
+    "**/react-native-scripts",
+    "**/react-native-scripts/**",
+    "**/expo",
+    "**/expo/**"
   ]
 }
 ```
 
-#### Adjusted `.yarnrc` to share dev tools
+#### `.yarnrc` to share dev tools
 
 ```
 echo "--ignore-workspace-root-check true" > .yarnrc
@@ -70,14 +73,14 @@ echo "--ignore-workspace-root-check true" > .yarnrc
 Actually, let's not do this and use -W so we don't accidentally add things
 to the workspace root.
 
-#### Added eslint for worksapces
+#### `eslint` for worksapces
 
 ```
-yarn add --dev eslint
+yarn add -W --dev eslint
 eslint --init
 ```
 
-#### Added a test module in core
+#### A test module in core
 
 ```
 mkdir -p core/zest
@@ -99,7 +102,7 @@ Okay, let's try to import or zest module in node.
 We can import zest anywhere in the monorepo and we will get the latest.
 Edit the code and rerun anywhere.
 
-#### Introduced Babel
+<!-- #### Babel
 
 To write the fancy JavaScript we want to write but have it work in react-native,
 node or browsers, we need to use Babel. Following along with the guide:
@@ -109,9 +112,9 @@ https://babeljs.io/docs/en
 ```
 cd core/zest
 npm install --save-dev babel-cli babel-preset-env
-```
+``` -->
 
-#### Started a pure JavaScript Zash JSON RPC lib
+#### A pure JavaScript Zcash JSON RPC lib
 
 I'll probably try to fork someone else's code at some point. But, let's
 experience the pain and bliss of writing a JSON-RPC library for Zcash from
