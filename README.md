@@ -160,9 +160,52 @@ see if we can add the Zcash methods to this library. First, I made a fork:
 
 https://github.com/skyl/node-zcash-rpc
 
-I'll probably want to read the repo into a subtree of the monorepo eventually.
+I'll probably want to read the repo's history into a subtree of the monorepo,
+eventually.
 But, for now I'm just going to use a submodule to keep the history clean.
 
 ```
 git submodule add https://github.com/skyl/node-zcash-rpc core/node-zcash-rpc
+```
+
+Run `yarn` in the root to get the dependencies.
+
+Let's test that we can use this client in node. First add you rpc username
+and password as found in your zcash.conf:
+
+```
+export ZCASH_RPC_USERNAME=YOUR_USERNAME
+export ZCASH_RPC_PASSWORD=YOUR_PASSWORD
+```
+
+Now run in node:
+
+```
+Client = require('node-zcash-rpc')
+c = new Client({
+  port: 8232,
+  username: process.env.ZCASH_RPC_USERNAME,
+  password: process.env.ZCASH_RPC_PASSWORD
+})
+c.getInfo().then((help) => console.log(help))
+```
+
+Provided you have a Zcash node running locally, you should see output such as:
+
+```
+{ version: 1010150,
+  protocolversion: 170006,
+  walletversion: 60000,
+  balance: 0,
+  blocks: 345977,
+  timeoffset: 0,
+  connections: 8,
+  proxy: '',
+  difficulty: '9650682.810602054',
+  testnet: false,
+  keypoololdest: 1529562964,
+  keypoolsize: 101,
+  paytxfee: 0,
+  relayfee: 0.000001,
+  errors: '' }
 ```
