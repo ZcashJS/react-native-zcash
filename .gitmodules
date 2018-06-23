@@ -1,3 +1,0 @@
-[submodule "core/node-zcash-rpc"]
-	path = core/node-zcash-rpc
-	url = https://github.com/skyl/node-zcash-rpc

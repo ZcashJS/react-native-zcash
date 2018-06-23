@@ -213,6 +213,21 @@ Provided you have a Zcash node running locally, you should see output such as:
   errors: '' }
 ```
 
+***Whoa. Way better than that though is `stdrpc`!***
+
+https://github.com/montyanderson/stdrpc
+
+```
+rpc = require('stdrpc')
+c = rpc({
+  url: 'http://localhost:8232',
+  username: '...',
+  password: '...',
+})
+c.getinfo().then((info) => { console.log(info) } )
+```
+
+
 #### Create React Native App
 
 Following along here:
