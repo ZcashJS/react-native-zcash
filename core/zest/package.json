@@ -1,0 +1,9 @@
+{
+  "name": "zest",
+  "version": "1.0.0",
+  "description": "Just a test module",
+  "main": "index.js",
+  "author": "Skylar Saveland",
+  "license": "MIT",
+  "private": false
+}

@@ -6,11 +6,21 @@
   "license": "MIT",
   "private": true,
   "workspaces": {
-    "packages": ["packages/*"],
+    "packages": [
+      "core/*",
+      "components/*",
+      "applications/*"
+    ],
     "nohoist": [
-        "**/react-native", "**/react-native/**",
-        "**/react-native-scripts", "**/react-native-scripts/**",
-        "**/expo", "**/expo/**"
+      "**/react-native",
+      "**/react-native/**",
+      "**/react-native-scripts",
+      "**/react-native-scripts/**",
+      "**/expo",
+      "**/expo/**"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1"
   }
 }
