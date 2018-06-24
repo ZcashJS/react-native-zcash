@@ -1,18 +1,13 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
   Platform,
   StyleSheet,
   Text,
   View
-} from 'react-native';
+} from 'react-native'
 
 import zest from 'zest'
+import GetBestBlockHash from 'components/GetBestBlockHash'
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -36,6 +31,7 @@ export default class App extends Component<Props> {
           {instructions}
         </Text>
         <Text>I can haz reload {zest}</Text>
+        <GetBestBlockHash />
       </View>
     );
   }

@@ -21,8 +21,9 @@ You'll want to get that started first. I'm developing on a Mac and started
 here: https://github.com/kozyilmaz/zcash-apple. It's awesome.
 
 Once you have the blockchain syncing, you can continue reading about how
-this repo is setup or skip the story and go to the end for "installation",
-"usage", "building" and "developing".
+this repo is setup. This document is just for the record. If you want to see
+what this distilled down to, you should be able to just follow the
+[README](README.md) and not have to worry about the fiddliness below.
 
 ### `yarn` workspaces (~1.7.0)
 
@@ -421,3 +422,26 @@ yarn workspace add ZcashOSX zest@*
 ```
 
 Super! I'm importing modules from the workspace into my Cocoa app!
+
+#### Talk to `zcashd` with react-native components
+
+Now that we have an OSX app that can import and babelify from the workspace,
+let's try to make a component that can talk to zcashd and display in our app.
+
+We can start from the calls and start with something simple:
+
+https://zcash-rpc.github.io/
+
+```
+mkdir components
+```
+
+For now, I'm actually going to use a singe package for all components.
+We might want to make each component its own package or group components into
+packages. For now we can just use 1. Change `package.json` from `components/*`
+to `components`. Then,
+
+```
+cd components
+yarn init
+```

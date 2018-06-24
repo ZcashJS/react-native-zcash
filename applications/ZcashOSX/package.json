@@ -11,6 +11,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "components": "*",
     "react": "16.2.0",
     "react-native-macos": "0.18.0-alpha.5",
     "zest": "*"

@@ -15,7 +15,7 @@ After cloning this repo and moving to its root, run:
 yarn
 ```
 
-## Start the ZcashWallet application
+## Start the CRNA ZcashWallet application
 
 ```
 cd applications/ZcashWallet
@@ -25,3 +25,10 @@ yarn start
 Now that you've started the application, you can edit any of its dependencies
 anywhere in the workspace and they will be babelified and repackaged and the
 app will update live! Sweet!
+
+## Start the MacOS app
+
+```
+cd applications/ZcashOSX
+yarn start
+```
