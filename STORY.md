@@ -227,8 +227,7 @@ c = rpc({
 c.getinfo().then((info) => { console.log(info) } )
 ```
 
-
-#### Create React Native App
+#### Create React Native App (CRNA)
 
 Following along here:
 
@@ -256,3 +255,169 @@ In our case, let's remove the nohoist specification and see if we can
 change to this way.
 
 ... *10 minutes later* ... Hallelujah. It Works™.
+
+We even got rid of `nohoist` and simplified our package.json:
+
+```
+{
+  "name": "react-native-zcash-wallet",
+  "version": "0.0.1",
+  "description": "React Native Zcash Wallet",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "core/*",
+      "components/*",
+      "applications/*"
+    ]
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-plugin-react": "^7.9.1"
+  },
+  "dependencies": {
+    "stdrpc": "^1.0.0"
+  }
+}
+```
+
+#### react-native-macos
+
+Unfortunately, CRNA doesn't have a great integration with any tool to build an
+OSX desktop app at the time of writing. But, one of the great advantages of
+having a repository with multiple workspaces, applications, components and
+libraries is that we can make the applications very lightweight and disposable.
+All of the important code can reside in `core/` or `components/` and we can
+freely try out different harnesses and build possibilities without an
+experiment corrupting another application. We don't have to use branches and
+we don't have to have the friction of moving from one repository to another.
+
+Let's create a new react-native application with react-native-macos:
+
+https://github.com/ptmt/react-native-macos#getting-started
+
+```
+npm install react-native-macos-cli -g
+cd applications/
+react-native-macos init ZcashOSX
+```
+
+Oh dear: looks like react-native-macos-cli expects to be installed to the
+workspace's node_modules instead of the project root!
+
+```
+Error: Cannot find module '/.../react-native-zcash-wallet/applications/ZcashOSX/node_modules/react-native-macos/package.json'
+```
+
+Let's destroy that and start over:
+
+```
+rm -r ZcashOSX
+cd ..
+find . -name "node_modules" -exec rm -r "{}" \;
+yarn
+```
+
+Well then. Let's try to use `nohoist`. In package.json then:
+
+```
+"workspaces": {
+  "packages": [
+    "core/*",
+    "components/*",
+    "applications/*"
+  ],
+  "nohoist": [
+    "**/react-native-macos",
+    "**/react-native-macos/**"
+  ]
+},
+```
+
+Now let's try to craete the macos app again:
+
+```
+cd applications
+react-native-macos init ZcashOSX
+```
+
+Can we run it?
+
+```
+cd ZcashOSX
+react-native-macos run-macos
+```
+
+Hrm. For me it doesn't build. Let's try opening the xcodeproj.
+
+```
+open macos/ZcashOSX.xcodeproj
+```
+
+Hrm. Now it needs to install a bunch of components for XCode?
+
+...
+
+then ...
+https://github.com/ptmt/react-native-macos/issues/199
+
+Okay upgraded and then:
+
+```
+Loading dependency graph, done.
+error: bundling failed: ReferenceError: Unknown plugin "module-resolver" specified in "/Users/skyl/Code/tmp/ZcashOSX/.babelrc" at 0, attempted to resolve relative to "/Users/skyl/Code/tmp/ZcashOSX"
+    at /Users/skyl/Code/tmp/ZcashOSX/node_modules/babel-core/lib/transformation/file/options/option-manager.js:180:17
+    at Array.map (<anonymous>)
+    at Function.normalisePlugins (/Users/skyl/Code/tmp/ZcashOSX/node_modules/babel-core/lib/transformation/file/options/option-manager.js:158:20)
+    at OptionManager.mergeOptions (/Users/skyl/Code/tmp/ZcashOSX/node_modules/babel-core/lib/transformation/file/options/option-manager.js:234:36)
+    at OptionManager.init (/Users/skyl/Code/tmp/ZcashOSX/node_modules/babel-core/lib/transformation/file/options/option-manager.js:368:12)
+    at File.initOptions (/Users/skyl/Code/tmp/ZcashOSX/node_modules/babel-core/lib/transformation/file/index.js:212:65)
+    at new File (/Users/skyl/Code/tmp/ZcashOSX/node_modules/babel-core/lib/transformation/file/index.js:135:24)
+    at Pipeline.transform (/Users/skyl/Code/tmp/ZcashOSX/node_modules/babel-core/lib/transformation/pipeline.js:46:16)
+    at Object.transform (/Users/skyl/Code/tmp/ZcashOSX/node_modules/metro/src/transformer.js:137:11)
+ BUNDLE  [macos, dev] ./index.js ░░░░░░░░░░░░░░░░ 0.0% (0/1), failed.
+```
+
+Fixed this with:
+
+```
+yarn add --dev babel-plugin-module-resolver
+```
+
+Still see:
+
+```
+ENOENT: no such file or directory, uv_chdir
+```
+
+But, the app seems to work ... (this is all in a directory outside the
+workspaces ...)
+
+```
+react-native-macos run-macos
+```
+
+Editing and reloading works with cmd+r.
+
+Let's try to get it working in the yarn workspaces.
+
+So, we have the same problem experienced above with the CRNA app we made.
+
+Let's try to follow the instructions here again for our react-native-macos app:
+
+https://codedaily.io/screencasts/66/Use-Yarn-Workspaces-to-Share-Code-with-a-create-react-app-and-create-react-native-app-in-a-Monorepo
+
+```
+yarn workspace ZcashOSX add crna-make-symlinks-for-yarn-workspaces metro-bundler-config-yarn-workspaces --dev
+```
+
+Now we edit `rn-cli.config` to use the alternate metro bundler.
+We also edit `link-workspaces.js`.
+
+```
+yarn workspace add ZcashOSX zest@*
+```
+
+Super! I'm importing modules from the workspace into my Cocoa app!

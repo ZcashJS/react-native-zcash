@@ -1,0 +1,29 @@
+{
+  "name": "ZcashOSX",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "prestart": "node link-workspaces.js",
+    "start": "node node_modules/react-native-macos/local-cli/cli.js start",
+    "ios": "react-native run-ios",
+    "android": "react-native run-android",
+    "macos": "react-native-macos run-macos",
+    "test": "jest"
+  },
+  "dependencies": {
+    "react": "16.2.0",
+    "react-native-macos": "0.18.0-alpha.5",
+    "zest": "*"
+  },
+  "devDependencies": {
+    "babel-jest": "23.0.1",
+    "babel-preset-react-native": "4.0.0",
+    "crna-make-symlinks-for-yarn-workspaces": "^1.0.1",
+    "jest": "23.1.0",
+    "metro-bundler-config-yarn-workspaces": "^1.0.3",
+    "react-test-renderer": "16.2.0"
+  },
+  "jest": {
+    "preset": "react-native-macos"
+  }
+}
