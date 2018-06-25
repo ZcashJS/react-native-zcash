@@ -2,7 +2,11 @@
   "name": "react-native-zcash-wallet",
   "version": "0.0.1",
   "description": "React Native Zcash Wallet",
-  "main": "index.js",
+  "scripts": {
+    "clean-node": "find . -name 'node_modules' -exec rm -r '{}' \\;",
+    "clean-git": "git clean -xdf",
+    "clean-install": "npm run clean-git && yarn"
+  },
   "license": "MIT",
   "private": true,
   "workspaces": {
@@ -15,7 +19,9 @@
       "**/react-native-macos",
       "**/react-native-macos/**",
       "**/redux-persist",
-      "**/redux-persist/**"
+      "**/redux-persist/**",
+      "**/react-navigation",
+      "**/react-navigation/**"
     ]
   },
   "devDependencies": {

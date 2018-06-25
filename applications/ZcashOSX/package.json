@@ -14,6 +14,7 @@
     "components": "*",
     "react": "16.2.0",
     "react-native-macos": "^0.18.0-alpha.5",
+    "react-navigation": "^2.5.2",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
     "redux-persist": "^5.10.0",

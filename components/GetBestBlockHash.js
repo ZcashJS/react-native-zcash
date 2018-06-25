@@ -1,7 +1,28 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import {
+  StyleSheet,
+  View, 
+  Text
+} from 'react-native'
 import { connect } from 'react-redux'
 import stdrpc from 'stdrpc'
+
+const styles = StyleSheet.create({
+  container: {
+      padding: 10,
+      // width: '100%',
+      // padding: 10,
+      // flex: 1,
+      // padding: 10,
+      // justifyContent: 'space-between',
+      // justifyContent: 'center',
+      // justifyContent: 'space-around',
+      // alignItems: 'center',
+      // marginTop: 23,
+      // backgroundColor: '#fdf',
+  },
+})
+
 
 
 class GetBestBlockHash extends React.Component {
@@ -27,7 +48,7 @@ class GetBestBlockHash extends React.Component {
   render() {
     if (!this.state.bestblockhash) return null
     return (
-      <View>
+      <View style={styles.container}>
         <Text>Best Block Hash: {this.state.bestblockhash}</Text>
       </View>
     )

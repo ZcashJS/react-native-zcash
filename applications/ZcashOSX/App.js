@@ -8,20 +8,27 @@ import { Provider, connect } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 
 import LoginScreen from 'components/LoginScreen'
-import WalletScreen from 'components/WalletScreen'
+import LoggedInContainer from './LoggedInContainer'
 import configureStore from './configureStore'
 
 const { store, persistor } = configureStore()
 
-
 class Authed extends Component {
+  // TODO: need a better way to develop without logging in - Storybook?
+  componentWillMount() {
+    this.props.dispatch({
+      type: 'SET_AUTH',
+      username: 'z',
+      password: 'a',
+    })
+  }
+
   render() {
     const { username, password } = this.props.auth
     const authed = username && password
-
     return (
       <View style={styles.container}>
-        {authed && <WalletScreen />}
+        {authed && <LoggedInContainer />}
         {!authed && <LoginScreen />}
       </View>
     )

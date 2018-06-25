@@ -485,3 +485,8 @@ etc ...
 (TODO) This doesn't work with react-native-macos OOTB:
 
 https://medium.com/react-native-development/easily-build-forms-in-react-native-9006fcd2a73b
+
+
+##### Main tab navigation
+
+https://reactnavigation.org/docs/en/tab-based-navigation.html#customizing-the-appearance
