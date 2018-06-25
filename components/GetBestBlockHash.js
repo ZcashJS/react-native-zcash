@@ -1,9 +1,10 @@
 import React from 'react'
 import { View, Text } from 'react-native'
+import { connect } from 'react-redux'
 import stdrpc from 'stdrpc'
 
 
-export default class GetBestBlockHash extends React.Component {
+class GetBestBlockHash extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -16,8 +17,8 @@ export default class GetBestBlockHash extends React.Component {
     // TODO: store username/password in localstorage after login component
     const c = stdrpc({
       url: 'http://localhost:8232',
-      username: '...',
-      password: '...',
+      username: this.props.auth.username,
+      password: this.props.auth.password,
     })
     c.getbestblockhash().then((bestblockhash) => {
       this.setState({ bestblockhash })
@@ -32,3 +33,9 @@ export default class GetBestBlockHash extends React.Component {
     )
   }
 }
+
+export default connect((state) => {
+  return {
+    auth: state.auth,
+  }
+})(GetBestBlockHash)

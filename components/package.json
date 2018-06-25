@@ -4,5 +4,8 @@
   "description": "React Native Components for Zcashd",
   "main": "index.js",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "dependencies": {
+    "react-redux": "^5.0.7"
+  }
 }

@@ -9,7 +9,7 @@ import {
 import { connect } from 'react-redux'
 
 
-class Login extends Component {
+class LoginScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -69,4 +69,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connect()(Login)
+export default connect()(LoginScreen)

@@ -7,7 +7,8 @@ import {
 import { Provider, connect } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 
-import Login from './Login'
+import LoginScreen from 'components/LoginScreen'
+import WalletScreen from 'components/WalletScreen'
 import configureStore from './configureStore'
 
 const { store, persistor } = configureStore()
@@ -20,8 +21,8 @@ class Authed extends Component {
 
     return (
       <View style={styles.container}>
-        {authed && <Text style={styles.welcome}>Logged In</Text>}
-        {!authed && <Login />}
+        {authed && <WalletScreen />}
+        {!authed && <LoginScreen />}
       </View>
     )
   }
@@ -51,15 +52,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
   },
 });
