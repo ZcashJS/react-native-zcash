@@ -4,20 +4,41 @@ import {
   Text,
   View
 } from 'react-native'
-import { Provider } from 'react-redux'
+import { Provider, connect } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
+
+import Login from './Login'
 import configureStore from './configureStore'
 
 const { store, persistor } = configureStore()
+
+
+class Authed extends Component {
+  render() {
+    const { username, password } = this.props.auth
+    const authed = username && password
+
+    return (
+      <View style={styles.container}>
+        {authed && <Text style={styles.welcome}>Logged In</Text>}
+        {!authed && <Login />}
+      </View>
+    )
+  }
+}
+Authed = connect((state) => {
+  return {
+    auth: state.auth
+  }
+})(Authed)
+
 
 export default class App extends Component {
   render() {
     return (
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-          <View style={styles.container}>
-            <Text style={styles.welcome}>Hello again</Text>
-          </View>
+          <Authed />
         </PersistGate>
       </Provider>
     );
