@@ -478,3 +478,10 @@ etc ...
 ##### Figure out persistence
 
 (TODO) right now reloading the app causes me to lose my password.
+
+
+##### Jazzy Form
+
+(TODO) This doesn't work with react-native-macos OOTB:
+
+https://medium.com/react-native-development/easily-build-forms-in-react-native-9006fcd2a73b
