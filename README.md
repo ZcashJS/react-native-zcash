@@ -30,5 +30,5 @@ app will update live! Sweet!
 
 ```
 cd applications/ZcashOSX
-yarn start
+yarn macos
 ```
