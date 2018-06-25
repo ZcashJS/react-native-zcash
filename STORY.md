@@ -474,3 +474,7 @@ See
 * applications/ZcashOSX/package.json
 
 etc ...
+
+##### Figure out persistence
+
+(TODO) right now reloading the app causes me to lose my password.
