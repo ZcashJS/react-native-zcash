@@ -6,6 +6,7 @@ import {
 } from 'react-native'
 
 import GetBestBlockHash from 'components/GetBestBlockHash'
+import GetBlock from 'components/GetBlock'
 
 
 export default class NetWorkScreen extends Component {
@@ -13,6 +14,7 @@ export default class NetWorkScreen extends Component {
       return (
         <View>
           <GetBestBlockHash />
+          <GetBlock />
         </View>
       )
     }
