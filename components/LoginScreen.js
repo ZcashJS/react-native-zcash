@@ -28,45 +28,89 @@ class LoginScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Login Here:</Text>
-        <Text style={styles.instructions}>
-          You have to start zcashd with rpcuser and rpcpassword set.
-          You can find those in your zcash.conf file.
-        </Text>
-        <TextInput
-          onChangeText={(username) => this.setState({username})}
-          value={this.state.username}
-        />
-        <TextInput
-          onChangeText={(password) => this.setState({password})}
-          value={this.state.password}
-        />
-        <Button
-          title="Set Username and Password"
-          onPress={() => this.handleSubmit()}
-        />
+        <View style={styles.instructions}>
+          <Text>
+            Start zcashd with rpcuser and rpcpassword set in your zcash.conf.
+            Enter those values here.
+          </Text>
+        </View>
+        <View style={styles.form}>
+          <View style={styles.field}>
+            <Text style={styles.label}>username:</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="username"
+              onChangeText={(username) => this.setState({username})}
+              value={this.state.username}
+            />
+          </View>
+          <View style={styles.field}>
+            <Text style={styles.label}>password:</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="password"
+              onChangeText={(password) => this.setState({password})}
+              value={this.state.password}
+            />
+          </View>
+          <Button
+            style={styles.button}
+            title="Set Auth"
+            onPress={() => this.handleSubmit()}
+          />
+        </View>
       </View>
-    );
+    )
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    width: 240,
+    // flex: 1,
+    // padding: 10,
+    // justifyContent: 'space-between',
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    // justifyContent: 'space-around',
+    // alignItems: 'center',
+    // backgroundColor: '#ffa',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
+  // welcome: {
+  //   fontSize: 20,
+  //   textAlign: 'center',
+  //   margin: 10,
+  // },
   instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+    // textAlign: 'center',
+    // color: '#aaa',
+    marginBottom: 13,
+    // flex: 1,
   },
-});
+  field: {
+    // flex: 5,
+    // justifyContent: 'space-around',
+    // flexDirection: 'row',
+    // flex: 1,
+    // width: 300,
+  },
+  // welcome: {
+  label: {
+    // flex: 1,
+  },
+  input: {
+    // flex: 1,
+    // width: 161,
+  },
+  button: {
+    // borderWidth: StyleSheet.hairlineWidth,
+    // borderColor: '#0f0f0f',
+    // borderColor: 'red',
+    // flex: 1,
+    // fontSize: 12,
+    // padding: 4,
+    width: 110,
+    height: 60,
+  },
+})
 
 export default connect()(LoginScreen)
