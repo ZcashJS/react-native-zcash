@@ -1,38 +1,25 @@
 import React, { Component } from 'react'
 import {
-  Platform,
   StyleSheet,
   Text,
   View
 } from 'react-native'
+import { Provider } from 'react-redux'
+import { PersistGate } from 'redux-persist/integration/react'
+import configureStore from './configureStore'
 
-import zest from 'zest'
-import GetBestBlockHash from 'components/GetBestBlockHash'
+const { store, persistor } = configureStore()
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
-
-type Props = {};
-export default class App extends Component<Props> {
+export default class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
-        <Text>I can haz reload {zest}</Text>
-        <GetBestBlockHash />
-      </View>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <View style={styles.container}>
+            <Text style={styles.welcome}>Hello again</Text>
+          </View>
+        </PersistGate>
+      </Provider>
     );
   }
 }

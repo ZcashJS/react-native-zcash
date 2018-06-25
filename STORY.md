@@ -445,3 +445,32 @@ to `components`. Then,
 cd components
 yarn init
 ```
+
+This worked OOTB now - see components/GetBestBlockHash.js, for instance.
+
+#### Authentication, redux, AsyncStorage
+
+We're not going to instantiate a new client in every component with
+hard-coded credentials. I think the thing to do would be to store the
+username and password from user input and store it in AsyncStorage. We can use
+redux to organize and share the state in general, starting with the username
+and password.
+
+Let's try this:
+
+https://medium.com/@sumitkushwaha/syncing-redux-store-with-asyncstorage-in-react-native-2b8b890b9ca1
+
+eh, maybe not. That's a bit old and a little bit hacky.
+
+How about this?
+
+https://github.com/rt2zz/redux-persist
+
+I got it working but I had to nohoist it.
+
+See
+
+* applications/ZcashOSX/App.js
+* applications/ZcashOSX/package.json
+
+etc ...
