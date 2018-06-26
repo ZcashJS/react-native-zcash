@@ -7,6 +7,7 @@ import {
 
 import GetBestBlockHash from 'components/GetBestBlockHash'
 import GetBlock from 'components/GetBlock'
+import GetBlockchainInfo from 'components/GetBlockchainInfo'
 
 
 export default class NetWorkScreen extends Component {
@@ -15,6 +16,7 @@ export default class NetWorkScreen extends Component {
         <View>
           <GetBestBlockHash />
           <GetBlock />
+          <GetBlockchainInfo />
         </View>
       )
     }
