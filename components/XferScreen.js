@@ -5,14 +5,17 @@ import {
   View,
 } from 'react-native'
 
+import GetBalance from 'components/GetBalance'
+
 
 export default class SendRecieveContainer extends Component {
     render() {
-      return (
-        <View>
-          <Text>Hello Xfers</Text>
-        </View>
-      )
+        return (
+            <View>
+                <Text>Xfers</Text>
+                <GetBalance />
+            </View>
+        )
     }
-  }
+}
   

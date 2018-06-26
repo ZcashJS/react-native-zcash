@@ -15,11 +15,11 @@ const styles = StyleSheet.create({
     },
 })
 
-class GetBlockchainInfo extends React.Component {
+class GetBalance extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            blockchaininfo: false
+            balance: 0.0
         }
     }
     componentWillMount() {
@@ -30,22 +30,20 @@ class GetBlockchainInfo extends React.Component {
             username: this.props.auth.username,
             password: this.props.auth.password,
         })
-        c.getblockchaininfo().then((blockchaininfo) => {
-            this.setState({ blockchaininfo })
+        c.getbalance().then((balance) => {
+            this.setState({ balance })
         })
     }
     render() {
         // if (!this.state.blockchaininfo) { return <Text>Loading... </Text> }
         return (
             <View style={styles.container}>
-                <Text>Block Chain Info</Text>
-                {this.state.blockchaininfo &&
-                    <View>
-                        <Text>
-                            {JSON.stringify(this.state.blockchaininfo)}
-                        </Text>
-                    </View>
-                }
+                <Text>Balance:</Text>
+                <View>
+                    <Text>
+                        {JSON.stringify(this.state.balance)}
+                    </Text>
+                </View>
             </View>
         )
     }
@@ -55,4 +53,4 @@ export default connect((state) => {
     return {
         auth: state.auth,
     }
-})(GetBlockchainInfo)
+})(GetBalance)
