@@ -7,6 +7,7 @@ import {
 
 import GetBalance from 'components/GetBalance'
 import GetNewAddress from 'components/GetNewAddress'
+import ListReceivedByAddress from 'components/ListReceivedByAddress'
 
 
 export default class SendRecieveContainer extends Component {
@@ -16,8 +17,8 @@ export default class SendRecieveContainer extends Component {
         <Text>Xfers</Text>
         <GetBalance />
         <GetNewAddress />
+        <ListReceivedByAddress />
       </View>
     )
   }
 }
-  

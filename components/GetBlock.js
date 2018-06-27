@@ -1,7 +1,7 @@
 import React from 'react'
 import {
   StyleSheet,
-  View, 
+  View,
   Text,
   TextInput,
   Button,
@@ -9,21 +9,21 @@ import {
 import { connect } from 'react-redux'
 import stdrpc from 'stdrpc'
 
-import BlockData from 'components/BlockData'
+import BlockDetail from 'components/BlockDetail'
 
 const styles = StyleSheet.create({
   container: {
-      padding: 10,
-      // width: '100%',
-      // padding: 10,
-      // flex: 1,
-      // padding: 10,
-      // justifyContent: 'space-between',
-      // justifyContent: 'center',
-      // justifyContent: 'space-around',
-      // alignItems: 'center',
-      // marginTop: 23,
-      // backgroundColor: '#fdf',
+    padding: 10,
+    // width: '100%',
+    // padding: 10,
+    // flex: 1,
+    // padding: 10,
+    // justifyContent: 'space-between',
+    // justifyContent: 'center',
+    // justifyContent: 'space-around',
+    // alignItems: 'center',
+    // marginTop: 23,
+    // backgroundColor: '#fdf',
   },
   field: {
     // flex: 5,
@@ -41,8 +41,8 @@ const styles = StyleSheet.create({
     // width: 161,
   },
   button: {
-      width: 120,
-      height: 60,
+    width: 120,
+    height: 60,
   }
 })
 
@@ -68,20 +68,20 @@ class GetBlock extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        {this.state.block && <BlockData data={this.state.block} />}
+        {this.state.block && <BlockDetail data={this.state.block} />}
         <View style={styles.field}>
-            <Text style={styles.label}>Block # or Hash</Text>
-            <TextInput
-                style={styles.input}
-                placeholder="Block # or Hash"
-                onChangeText={(blockid) => this.setState({ blockid })}
-                value={this.state.blockid}
-            />
+          <Text style={styles.label}>Block # or Hash</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Block # or Hash"
+            onChangeText={(blockid) => this.setState({ blockid })}
+            value={this.state.blockid}
+          />
         </View>
         <Button
-            style={styles.button}
-            title="Get Block Info"
-            onPress={() => this.handleSubmit()}
+          style={styles.button}
+          title="Get Block Info"
+          onPress={() => this.handleSubmit()}
         />
       </View>
     )

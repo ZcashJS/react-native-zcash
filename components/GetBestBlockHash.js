@@ -9,17 +9,17 @@ import stdrpc from 'stdrpc'
 
 const styles = StyleSheet.create({
   container: {
-      padding: 10,
-      // width: '100%',
-      // padding: 10,
-      // flex: 1,
-      // padding: 10,
-      // justifyContent: 'space-between',
-      // justifyContent: 'center',
-      // justifyContent: 'space-around',
-      // alignItems: 'center',
-      // marginTop: 23,
-      // backgroundColor: '#fdf',
+    padding: 10,
+    // width: '100%',
+    // padding: 10,
+    // flex: 1,
+    // padding: 10,
+    // justifyContent: 'space-between',
+    // justifyContent: 'center',
+    // justifyContent: 'space-around',
+    // alignItems: 'center',
+    // marginTop: 23,
+    // backgroundColor: '#fdf',
   },
 })
 

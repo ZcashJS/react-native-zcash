@@ -3,13 +3,10 @@ import {
   StyleSheet,
   View, 
   Text,
-  TextInput,
   Button,
 } from 'react-native'
 import { connect } from 'react-redux'
 import stdrpc from 'stdrpc'
-
-import BlockData from 'components/BlockData'
 
 const styles = StyleSheet.create({
   container: {

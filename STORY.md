@@ -495,3 +495,24 @@ https://reactnavigation.org/docs/en/tab-based-navigation.html#customizing-the-ap
 ##### Clear runway for more RPC?
 
 ... https://zcash-rpc.github.io/
+
+
+##### Let's start building a wallet
+
+First lets run the testnet.
+
+I had to add some parameters to my zcash.conf to get JSON-RPC listening on the testnet:
+
+```
+rpcuser=z
+rpcpassword=a
+rpcport=8232
+server=1
+testnet=1
+addnode=testnet.z.cash
+gen=1
+```
+
+##### Selectable
+
+Workaround: https://github.com/ptmt/react-native-macos/issues/157

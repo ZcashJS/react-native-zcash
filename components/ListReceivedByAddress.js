@@ -8,6 +8,8 @@ import {
 import { connect } from 'react-redux'
 import stdrpc from 'stdrpc'
 
+import AddressDetail from 'components/AddressDetail'
+
 
 const styles = StyleSheet.create({
   container: {
@@ -15,11 +17,11 @@ const styles = StyleSheet.create({
   },
 })
 
-class GetBlockchainInfo extends React.Component {
+class ListReceivedByAddress extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      blockchaininfo: false
+      addresses: []
     }
   }
   componentWillMount() {
@@ -30,22 +32,19 @@ class GetBlockchainInfo extends React.Component {
       username: this.props.auth.username,
       password: this.props.auth.password,
     })
-    c.getblockchaininfo().then((blockchaininfo) => {
-      this.setState({ blockchaininfo })
+    c.listreceivedbyaddress(0, true).then((addresses) => {
+      this.setState({ addresses })
     })
   }
   render() {
-    // if (!this.state.blockchaininfo) { return <Text>Loading... </Text> }
     return (
       <View style={styles.container}>
-        <Text>Block Chain Info</Text>
-        {this.state.blockchaininfo &&
-          <View>
-            <Text>
-              {JSON.stringify(this.state.blockchaininfo)}
-            </Text>
-          </View>
-        }
+        <Text>Addresses:</Text>
+        <View>
+          {this.state.addresses.map((address) => {
+            return <AddressDetail key={address.address} data={address} />
+          })}
+        </View>
       </View>
     )
   }
@@ -55,4 +54,4 @@ export default connect((state) => {
   return {
     auth: state.auth,
   }
-})(GetBlockchainInfo)
+})(ListReceivedByAddress)
