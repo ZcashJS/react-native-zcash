@@ -3,26 +3,28 @@
 import React from 'react'
 import {
   StyleSheet,
-  ScrollView,
-  TextInput,
+  Text,
+  View,
 } from 'react-native'
+
+import DisplayAddress from 'components/DisplayAddress'
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
-    // height: 300,
   },
 })
 
+
 export default class AddressDetail extends React.Component {
   render() {
+    const { address, amount, confirmations } = this.props.data
+
     return (
-      <ScrollView style={styles.container}>
-        <TextInput
-          multiple={true}
-          value={JSON.stringify(this.props.data)}
-        />
-      </ScrollView>
+      <View style={styles.container}>
+        <DisplayAddress address={address} />
+        <Text>Amount: {amount}</Text>
+        <Text>Confirmations: {confirmations}</Text>
+      </View>
     )
   }
 }

@@ -39,7 +39,7 @@ class ListReceivedByAddress extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Addresses:</Text>
+        <Text>Transparent Addresses:</Text>
         <View>
           {this.state.addresses.map((address) => {
             return <AddressDetail key={address.address} data={address} />

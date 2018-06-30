@@ -1,51 +1,49 @@
 import React from 'react'
 import {
   StyleSheet,
-  View, 
+  View,
   Text,
-  Button,
 } from 'react-native'
 import { connect } from 'react-redux'
 import stdrpc from 'stdrpc'
+
+import DisplayAddress from 'components/DisplayAddress'
+
 
 const styles = StyleSheet.create({
   container: {
     padding: 10,
   },
-  button: {
-    width: 150,
-    height: 50,
-  }
 })
 
-class GetNewAddress extends React.Component {
+class ZListAddresses extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      newaddress: false
+      addresses: []
     }
   }
-  create() {
+  componentWillMount() {
+    // TODO: create core/client for single configuration/instance
+    // TODO: store username/password in localstorage after login component
     const c = stdrpc({
       url: 'http://localhost:8232',
       username: this.props.auth.username,
       password: this.props.auth.password,
     })
-    c.getnewaddress().then((newaddress) => {
-      this.setState({ newaddress })
+    c.z_listaddresses().then((addresses) => {
+      this.setState({ addresses })
     })
   }
   render() {
     return (
       <View style={styles.container}>
-        {this.state.newaddress && 
-          <Text>{this.state.newaddress}</Text>}
-        }
-        <Button
-            style={styles.button}
-            title="New Address"
-            onPress={() => this.create()}
-        />
+        <Text>ZAddresses:</Text>
+        <View>
+          {this.state.addresses.map((address) => {
+            return <DisplayAddress key={address} address={address} />
+          })}
+        </View>
       </View>
     )
   }
@@ -55,4 +53,4 @@ export default connect((state) => {
   return {
     auth: state.auth,
   }
-})(GetNewAddress)
+})(ZListAddresses)

@@ -2,11 +2,12 @@ import React from 'react'
 import {
   StyleSheet,
   View, 
-  Text,
   Button,
 } from 'react-native'
 import { connect } from 'react-redux'
 import stdrpc from 'stdrpc'
+
+import DisplayAddress from 'components/DisplayAddress'
 
 const styles = StyleSheet.create({
   container: {
@@ -18,7 +19,7 @@ const styles = StyleSheet.create({
   }
 })
 
-class GetNewAddress extends React.Component {
+class ZGetNewAddress extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -31,7 +32,7 @@ class GetNewAddress extends React.Component {
       username: this.props.auth.username,
       password: this.props.auth.password,
     })
-    c.getnewaddress().then((newaddress) => {
+    c.z_getnewaddress().then((newaddress) => {
       this.setState({ newaddress })
     })
   }
@@ -39,11 +40,11 @@ class GetNewAddress extends React.Component {
     return (
       <View style={styles.container}>
         {this.state.newaddress && 
-          <Text>{this.state.newaddress}</Text>}
+          <DisplayAddress address={this.state.newaddress} />
         }
         <Button
             style={styles.button}
-            title="New Address"
+            title="New Z Address"
             onPress={() => this.create()}
         />
       </View>
@@ -55,4 +56,4 @@ export default connect((state) => {
   return {
     auth: state.auth,
   }
-})(GetNewAddress)
+})(ZGetNewAddress)
