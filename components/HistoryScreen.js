@@ -5,12 +5,15 @@ import {
   View,
 } from 'react-native'
 
+import ZGetOperationStatus from 'components/ZGetOperationStatus'
+
 
 export default class HistoryContainer extends Component {
   render() {
     return (
       <View>
-        <Text>Hello History</Text>
+        <Text>History</Text>
+        <ZGetOperationStatus />
       </View>
     )
   }

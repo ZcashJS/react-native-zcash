@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import {
   StyleSheet,
-  Text,
+  // Text,
   View,
-  Button,
+  // Button,
 } from 'react-native'
 // import { createStackNavigator } from 'react-navigation'
 import { createBottomTabNavigator } from 'react-navigation'
@@ -35,9 +35,12 @@ const options = {
     padding: 10,
   },
   tabBarPosition: 'bottom',
-  animationEnabled: true,
-  swipeEnabled: true,
+  // animationEnabled: true,
+  // swipeEnabled: true,
   tabBarOptions: {
+    // indicatorStyle: {
+    //   backgroundColor: 'transparent',
+    // },
     // showIcon: true,
     labelStyle: {
       fontSize: 15
@@ -48,10 +51,10 @@ const options = {
     tabStyle: {
       // height: 10,
     },
-    iconStyle: {
-      flexGrow: 0,
-      marginTop: 1.5
-    },
+    // iconStyle: {
+    //   flexGrow: 0,
+    //   marginTop: 1.5
+    // },
   },
 }
 const RootStack = createBottomTabNavigator(stack, options)
