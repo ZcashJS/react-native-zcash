@@ -1,27 +1,32 @@
 import React, { Component } from 'react'
 import {
   StyleSheet,
-  Text,
   View
 } from 'react-native'
 import { Provider, connect } from 'react-redux'
-import { PersistGate } from 'redux-persist/integration/react'
 
 import LoginScreen from 'components/LoginScreen'
 import LoggedInContainer from './LoggedInContainer'
-import configureStore from './configureStore'
 
-const { store, persistor } = configureStore()
+import store from 'state/store'
+
 
 class Authed extends Component {
   // TODO: need a better way to develop without logging in - Storybook?
-  componentWillMount() {
-    // this.props.dispatch({
-    //   type: 'SET_AUTH',
-    //   username: 'z',
-    //   password: 'a',
-    // })
-  }
+  // TODO: investigate ways to inject configuration.
+  // componentWillMount() {
+  //   this.props.dispatch({
+  //     type: 'SET_AUTH',
+  //     username: 'z',
+  //     password: 'a',
+  //   })
+  //   this.props.dispatch({
+  //     type: 'SET_CLIENT_CONFIG',
+  //     client_config: {
+  //       url: 'http://localhost:8232',
+  //     },
+  //   })
+  // }
 
   render() {
     const { username, password } = this.props.auth
@@ -45,9 +50,7 @@ export default class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-          <Authed />
-        </PersistGate>
+        <Authed />
       </Provider>
     );
   }

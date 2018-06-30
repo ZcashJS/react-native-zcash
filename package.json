@@ -18,8 +18,6 @@
     "nohoist": [
       "**/react-native-macos",
       "**/react-native-macos/**",
-      "**/redux-persist",
-      "**/redux-persist/**",
       "**/react-navigation",
       "**/react-navigation/**"
     ]

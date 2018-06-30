@@ -23,6 +23,13 @@ class LoginScreen extends Component {
       type: 'SET_AUTH',
       ...this.state,
     })
+    // TODO: expose this on the client
+    // this.props.dispatch({
+    //   type: 'SET_CLIENT_CONFIG',
+    //   client_config: {
+    //     url: 'http://localhost:8232',
+    //   },
+    // })
   }
 
   render() {

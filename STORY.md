@@ -516,3 +516,15 @@ gen=1
 ##### Selectable
 
 Workaround: https://github.com/ptmt/react-native-macos/issues/157
+
+
+##### Remove redux-persist for now
+
+localStorage-type persistence in a cross-platform way is TBD.
+the redux/state/zcash-client should be dependent only on redux and other
+cross-platform libraries.
+
+Apps can depend on weird platform-specific libraries eg ZcashOSX.
+components/ and core/ must remain non-specific.
+
+
