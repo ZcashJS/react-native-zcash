@@ -18,7 +18,7 @@ class ZGetTotalBalance extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      balance: 0.0
+      balance: {}
     }
   }
   componentWillMount() {
