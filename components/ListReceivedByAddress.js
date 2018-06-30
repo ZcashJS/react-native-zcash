@@ -32,7 +32,7 @@ class ListReceivedByAddress extends React.Component {
       username: this.props.auth.username,
       password: this.props.auth.password,
     })
-    c.listreceivedbyaddress(0, true).then((addresses) => {
+    c.listreceivedbyaddress(1, true).then((addresses) => {
       this.setState({ addresses })
     })
   }

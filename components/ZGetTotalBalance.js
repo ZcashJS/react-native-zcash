@@ -2,19 +2,19 @@ import React from 'react'
 import {
   StyleSheet,
   View,
-  Text,
 } from 'react-native'
 import { connect } from 'react-redux'
 import stdrpc from 'stdrpc'
 
+import DisplayBalance from 'components/DisplayBalance'
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
+    // padding: 0,
   },
 })
 
-class GetBalance extends React.Component {
+class ZGetTotalBalance extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -22,31 +22,32 @@ class GetBalance extends React.Component {
     }
   }
   componentWillMount() {
+    // TODO: create core/client for single configuration/instance
+    // TODO: store username/password in localstorage after login component
     const c = stdrpc({
       url: 'http://localhost:8232',
       username: this.props.auth.username,
       password: this.props.auth.password,
     })
-    c.getbalance().then((balance) => {
+    c.z_gettotalbalance().then((balance) => {
       this.setState({ balance })
     })
   }
   render() {
     return (
       <View style={styles.container}>
-        <Text>Balance:</Text>
-        <View>
-          <Text>
-            {JSON.stringify(this.state.balance)}
-          </Text>
-        </View>
+        <DisplayBalance
+          name={"ZGetTotalBalance"}
+          balance={this.state.balance}
+        />
       </View>
     )
   }
 }
 
+// TODO: instead of using redux here, pass the client down?
 export default connect((state) => {
   return {
     auth: state.auth,
   }
-})(GetBalance)
+})(ZGetTotalBalance)

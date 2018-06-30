@@ -8,6 +8,7 @@ import {
 import GetBalance from 'components/GetBalance'
 import GetNewAddress from 'components/GetNewAddress'
 import ListReceivedByAddress from 'components/ListReceivedByAddress'
+import ZGetTotalBalance from 'components/ZGetTotalBalance'
 
 
 export default class SendRecieveContainer extends Component {
@@ -16,6 +17,7 @@ export default class SendRecieveContainer extends Component {
       <View>
         <Text>Xfers</Text>
         <GetBalance />
+        <ZGetTotalBalance />
         <GetNewAddress />
         <ListReceivedByAddress />
       </View>
