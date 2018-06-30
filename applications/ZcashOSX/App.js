@@ -16,11 +16,11 @@ const { store, persistor } = configureStore()
 class Authed extends Component {
   // TODO: need a better way to develop without logging in - Storybook?
   componentWillMount() {
-    this.props.dispatch({
-      type: 'SET_AUTH',
-      username: 'z',
-      password: 'a',
-    })
+    // this.props.dispatch({
+    //   type: 'SET_AUTH',
+    //   username: 'z',
+    //   password: 'a',
+    // })
   }
 
   render() {
