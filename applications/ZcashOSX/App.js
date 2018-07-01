@@ -12,22 +12,6 @@ import store from 'state/store'
 
 
 class Authed extends Component {
-  // TODO: need a better way to develop without logging in - Storybook?
-  // TODO: investigate ways to inject configuration.
-  // componentWillMount() {
-  //   this.props.dispatch({
-  //     type: 'SET_AUTH',
-  //     username: 'z',
-  //     password: 'a',
-  //   })
-  //   this.props.dispatch({
-  //     type: 'SET_CLIENT_CONFIG',
-  //     client_config: {
-  //       url: 'http://localhost:8232',
-  //     },
-  //   })
-  // }
-
   render() {
     const { username, password } = this.props.auth
     const authed = username && password
