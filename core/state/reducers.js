@@ -6,7 +6,7 @@ let default_auth = {
   username: 'z',
   password: 'a',
 }
-// default_auth = {}
+default_auth = {}
 
 const auth = (state = default_auth, action) => {
   switch (action.type) {
