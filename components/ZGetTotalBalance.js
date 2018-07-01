@@ -7,7 +7,7 @@ import {
 import { connect } from 'react-redux'
 
 import DisplayBalance from 'components/DisplayBalance'
-import client from 'state/client'
+import Client from 'state/Client'
 
 
 const styles = StyleSheet.create({
@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
 
 class ZGetTotalBalance extends React.Component {
   componentWillMount() {
+    const client = new Client()
     client.z_gettotalbalance()
   }
   render() {

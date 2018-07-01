@@ -16,7 +16,7 @@ export default class HistoryContainer extends Component {
         <Text>History</Text>
         <ZGetOperationStatus />
         {/* TODO: how to know if there is anything to shield? */}
-        {/* <ZShieldCoinbase /> */}
+        <ZShieldCoinbase />
       </View>
     )
   }

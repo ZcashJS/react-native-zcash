@@ -35,14 +35,28 @@ class Client {
     })
   }
 
+  z_sendmany(from, amounts, minconf=1, fee=0.0001) {
+    // console.warn(from, amounts, minconf, fee)
+    return this.rpc.z_sendmany(
+      from, amounts, minconf, fee
+    ).catch((err) => {
+      console.warn('ERROR', err)
+      return err
+    })
+  }
+
   z_shieldcoinbase(from, to) {
     return this.rpc.z_shieldcoinbase(from, to).then((result) => {
       store.dispatch({
         type: 'Z_SHIELDCOINBASE',
         result
       })
+    }).catch((err) => {
+      console.warn('ERROR', err)
+      return err
     })
   }
 }
 
-export default new Client()
+// export default new Client()
+export default Client

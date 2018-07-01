@@ -8,7 +8,7 @@ import {
 } from 'react-native'
 import { connect } from 'react-redux'
 
-import client from 'state/client'
+import Client from 'state/Client'
 
 const styles = StyleSheet.create({
   container: {
@@ -35,6 +35,7 @@ class ZShieldCoinbase extends React.Component {
   // }
   shield() {
     // client.z_shieldcoinbase('*', this.state.toaddress)
+    const client = new Client()
     client.z_shieldcoinbase('*', this.props.addresses[0])
   }
   render() {

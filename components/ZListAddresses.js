@@ -6,7 +6,7 @@ import {
 } from 'react-native'
 import { connect } from 'react-redux'
 
-import client from 'state/client'
+import Client from 'state/Client'
 import DisplayAddress from 'components/DisplayAddress'
 
 
@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
 
 class ZListAddresses extends React.Component {
   componentWillMount() {
+    client = new Client()
     client.z_listaddresses()
   }
   render() {
