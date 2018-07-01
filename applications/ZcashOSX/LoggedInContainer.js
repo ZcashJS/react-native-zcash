@@ -8,7 +8,7 @@ import {
 // import { createStackNavigator } from 'react-navigation'
 import { createBottomTabNavigator } from 'react-navigation'
 
-import client from 'state/client'
+// import client from 'state/client'
 
 // import Logout from 'components/Logout'
 import NetWorkScreen from 'components/NetworkScreen'
@@ -67,7 +67,7 @@ export default class LoggedInContainer extends Component {
     // TODO: this is just a shortcut to load a bunch of data from
     // the server into redux. We might want to make this more
     // fine-grained.
-    client.start()
+    // client.start()
   }
   render() {
     return (

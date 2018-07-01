@@ -5,8 +5,8 @@ import {
   Text,
 } from 'react-native'
 import { connect } from 'react-redux'
-import stdrpc from 'stdrpc'
 
+import client from 'state/client'
 import DisplayAddress from 'components/DisplayAddress'
 
 
@@ -17,30 +17,15 @@ const styles = StyleSheet.create({
 })
 
 class ZListAddresses extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      addresses: []
-    }
-  }
   componentWillMount() {
-    // TODO: create core/client for single configuration/instance
-    // TODO: store username/password in localstorage after login component
-    const c = stdrpc({
-      url: 'http://localhost:8232',
-      username: this.props.auth.username,
-      password: this.props.auth.password,
-    })
-    c.z_listaddresses().then((addresses) => {
-      this.setState({ addresses })
-    })
+    client.z_listaddresses()
   }
   render() {
     return (
       <View style={styles.container}>
         <Text>ZAddresses:</Text>
         <View>
-          {this.state.addresses.map((address) => {
+          {this.props.addresses.map((address) => {
             return <DisplayAddress key={address} address={address} />
           })}
         </View>
@@ -51,6 +36,6 @@ class ZListAddresses extends React.Component {
 
 export default connect((state) => {
   return {
-    auth: state.auth,
+    addresses: state.z_listaddresses,
   }
 })(ZListAddresses)

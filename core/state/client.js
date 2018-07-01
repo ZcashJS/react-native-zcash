@@ -4,15 +4,7 @@ import store from 'state/store'
 
 
 class Client {
-  // constructor() {
-  //   const { client_config, auth } = store.getState()
-  //   this.rpc = stdrpc({
-  //     ...auth,
-  //     ...client_config,
-  //   })
-  // }
-  // Need to instantiate later ... or export the class, I guess.
-  init() {
+  constructor() {
     const { client_config, auth } = store.getState()
     this.rpc = stdrpc({
       ...auth,
@@ -21,7 +13,6 @@ class Client {
   }
 
   start() {
-    this.init()
     this.z_gettotalbalance()
     this.z_listaddresses()
   }
@@ -40,6 +31,15 @@ class Client {
       store.dispatch({
         type: 'Z_LISTADDRESSES',
         addresses
+      })
+    })
+  }
+
+  z_shieldcoinbase(from, to) {
+    return this.rpc.z_shieldcoinbase(from, to).then((result) => {
+      store.dispatch({
+        type: 'Z_SHIELDCOINBASE',
+        result
       })
     })
   }

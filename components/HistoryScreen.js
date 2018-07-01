@@ -6,6 +6,7 @@ import {
 } from 'react-native'
 
 import ZGetOperationStatus from 'components/ZGetOperationStatus'
+import ZShieldCoinbase from 'components/ZShieldCoinbase'
 
 
 export default class HistoryContainer extends Component {
@@ -14,6 +15,8 @@ export default class HistoryContainer extends Component {
       <View>
         <Text>History</Text>
         <ZGetOperationStatus />
+        {/* TODO: how to know if there is anything to shield? */}
+        {/* <ZShieldCoinbase /> */}
       </View>
     )
   }

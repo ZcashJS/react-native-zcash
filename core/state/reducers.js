@@ -43,10 +43,19 @@ const z_gettotalbalance = (state = {}, action) => {
   }
 }
 
-const z_listaddresses = (state = {}, action) => {
+const z_listaddresses = (state = [], action) => {
   switch (action.type) {
     case 'Z_LISTADDRESSES':
       return action.addresses
+    default:
+      return state
+  }
+}
+
+const z_shieldcoinbase = (state = {}, action) => {
+  switch (action.type) {
+    case 'Z_SHIELDCOINBASE':
+      return action.result
     default:
       return state
   }
@@ -57,4 +66,5 @@ export default combineReducers({
   client_config,
   z_gettotalbalance,
   z_listaddresses,
+  z_shieldcoinbase,
 })
