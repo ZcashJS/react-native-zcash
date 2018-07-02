@@ -35,6 +35,16 @@ class Client {
     })
   }
 
+  z_getbalance(address) {
+    return this.rpc.z_getbalance(address).then((amount) => {
+      store.dispatch({
+        type: 'Z_GETBALANCE',
+        address,
+        amount
+      })
+    })
+  }
+
   z_sendmany(from, amounts, minconf=1, fee=0.0001) {
     // console.warn(from, amounts, minconf, fee)
     return this.rpc.z_sendmany(

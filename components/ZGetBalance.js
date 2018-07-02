@@ -3,33 +3,31 @@ import {
   StyleSheet,
   View,
   Text,
+  TextInput,
 } from 'react-native'
 import { connect } from 'react-redux'
 
 import Client from 'state/Client'
-import ZGetBalance from 'components/ZGetBalance'
-
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
+    // padding: 10,
   },
 })
 
-class ZListAddresses extends React.Component {
+class ZGetBalance extends React.Component {
   componentWillMount() {
     client = new Client()
-    client.z_listaddresses()
+    client.z_getbalance(this.props.address)
   }
   render() {
     return (
       <View style={styles.container}>
-        <Text>ZAddresses:</Text>
-        <View>
-          {this.props.addresses.map((address) => {
-            return <ZGetBalance key={address} address={address} />
-          })}
-        </View>
+        <TextInput
+          multiple={true}
+          value={this.props.address}
+        />
+        <Text>Balance: {this.props.balances[this.props.address]}</Text>
       </View>
     )
   }
@@ -37,6 +35,6 @@ class ZListAddresses extends React.Component {
 
 export default connect((state) => {
   return {
-    addresses: state.z_listaddresses,
+    balances: state.z_getbalance,
   }
-})(ZListAddresses)
+})(ZGetBalance)
