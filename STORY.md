@@ -528,3 +528,20 @@ Apps can depend on weird platform-specific libraries eg ZcashOSX.
 components/ and core/ must remain non-specific.
 
 
+##### Environment variables to change behaviour of app
+
+First case is to bypass auth in dev.
+This didn't work for me:
+https://www.npmjs.com/package/babel-plugin-transform-inline-environment-variables
+
+Prefer to use environment variables as above but having trouble passing
+the env to react-native-macos.
+
+Instead, for now, using:
+
+https://www.npmjs.com/package/react-native-dotenv
+
+with checked-in env file.
+
+Main problem with dotenv that the used variables must all be set
+or it causes an import error.
