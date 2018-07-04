@@ -3,6 +3,9 @@
 This repository uses yarn workspaces and react native. For a blow-by-blow
 account of how I got this working, [see here](STORY.md).
 
+This project is under development and is pre-alpha quality.
+Only use with testnet tokens for now.
+
 ## Prerequisites
 
 Install git and yarn and Xcode and stuff.
