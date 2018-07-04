@@ -32,3 +32,10 @@ app will update live! Sweet!
 cd applications/ZcashOSX
 yarn macos
 ```
+
+To bypass the auth screen while developing,
+set `REACT_APP_ZCASH_USERNAME` and `REACT_APP_ZCASH_PASSWORD`
+in the `.env` file in the root directory.
+Note: to toggle this with the application running,
+you might need to change and save `core/state/reducers.js`
+to provoke babel to retranspile that file.

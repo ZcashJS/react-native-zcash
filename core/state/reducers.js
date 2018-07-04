@@ -1,12 +1,13 @@
 import { combineReducers } from 'redux'
+import {
+  REACT_APP_ZCASH_USERNAME,
+  REACT_APP_ZCASH_PASSWORD,
+} from 'react-native-dotenv'
 
-
-// TODO: inject configuration for development
 let default_auth = {
-  username: 'z',
-  password: 'a',
+  username: REACT_APP_ZCASH_USERNAME,
+  password: REACT_APP_ZCASH_PASSWORD,
 }
-default_auth = {}
 
 const auth = (state = default_auth, action) => {
   switch (action.type) {
