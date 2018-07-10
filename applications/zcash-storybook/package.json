@@ -1,5 +1,5 @@
 {
-  "name": "ZcashWallet",
+  "name": "zcash-storybook",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
@@ -21,9 +21,11 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "components": "*",
     "expo": "^27.0.1",
     "react": "16.3.1",
     "react-native": "~0.55.2",
+    "state": "*",
     "zest": "*"
   }
 }
