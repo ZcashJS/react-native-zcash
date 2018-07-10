@@ -545,3 +545,53 @@ with checked-in env file.
 
 Main problem with dotenv that the used variables must all be set
 or it causes an import error.
+
+
+##### New app just for storybook
+
+Be specific about workspaces, remove `applications/*` from workspaces
+and refer specifically. This is necessary to create new applications
+with create-react-native-app, for instance.
+
+Now, create the new app:
+
+```
+cd applications
+create-react-native-app zcash-storybook
+cd ..
+```
+
+Now add the new workspace to the root package.json explicitly:
+
+```
+"applications/zcash-storybook"
+```
+
+Now, we follow the approach around minute 6 here (again? grr..):
+
+https://codedaily.io/screencasts/66/Use-Yarn-Workspaces-to-Share-Code-with-a-create-react-app-and-create-react-native-app-in-a-Monorepo
+
+```
+yarn workspace zcash-storybook add crna-make-symlinks-for-yarn-workspaces metro-bundler-config-yarn-workspaces --dev 
+```
+
+Remove entrypoint. Create AppEntry.js
+
+Create `rn-cli.config.js` for `metro-bundler-config-yarn-workspaces`.
+
+Create `link-workspaces.js` for `crna-make-symlinks-for-yarn-workspaces`
+
+Create `app.json` for `expo`.
+
+Now, from the root:
+
+```
+yarn workspace zcash-storybook add components@* state@* zest@*
+```
+
+Now, rerun `yarn`:
+
+```
+yarn
+```
+
