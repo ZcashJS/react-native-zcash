@@ -13,7 +13,8 @@
     "packages": [
       "core/*",
       "components",
-      "applications/*"
+      "applications/ZcashOSX",
+      "applications/ZcashWallet"
     ],
     "nohoist": [
       "**/react-native-macos",

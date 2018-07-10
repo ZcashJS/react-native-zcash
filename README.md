@@ -42,3 +42,19 @@ in the `.env` file in the root directory.
 Note: to toggle this with the application running,
 you might need to change and save `core/state/reducers.js`
 to provoke babel to retranspile that file.
+
+## Start Storybook
+
+`zcash-storybook` is not a yarn workspace and must be installed
+separately.
+
+```
+cd applications/zcash-storybook
+yarn
+yarn storybook
+# then in a separate terminal:
+yarn ios  # or `yarn android`
+```
+
+Now you can edit modules in `components` and see the results
+on a simulator.

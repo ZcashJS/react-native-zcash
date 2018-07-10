@@ -545,3 +545,15 @@ with checked-in env file.
 
 Main problem with dotenv that the used variables must all be set
 or it causes an import error.
+
+
+##### Without yarn workspaces
+
+Given the problems above, maybe the applications should not be
+workspaces. Specifically, Storybook is not working for me.
+So, I'm going to go ahead and try to set-up a new application for Storybook
+that doesn't hoist anything. Let's see ...
+
+Removing the application as a workspace and then using `link:`
+seems to work great with local modules,
+see `applications/zcash-storybook` which is not a yarn workspace.
