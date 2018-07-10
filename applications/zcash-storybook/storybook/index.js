@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { AppRegistry } from 'react-native';
-import { getStorybookUI, configure } from '@storybook/react-native';
+import React, { Component } from 'react'
+import { AppRegistry } from 'react-native'
+import { getStorybookUI, configure } from '@storybook/react-native'
 
 // import stories
 configure(() => {
