@@ -5,24 +5,11 @@
   "scripts": {
     "clean-node": "find . -name 'node_modules' -exec rm -r '{}' \\;",
     "clean-git": "git clean -xdf",
-    "clean-install": "npm run clean-git && yarn"
+    "clean-install": "npm run clean-git && yarn",
+    "all": "sh yarn-all.sh"
   },
   "license": "MIT",
   "private": true,
-  "workspaces": {
-    "packages": [
-      "core/*",
-      "components",
-      "applications/ZcashOSX",
-      "applications/ZcashWallet"
-    ],
-    "nohoist": [
-      "**/react-native-macos",
-      "**/react-native-macos/**",
-      "**/react-navigation",
-      "**/react-navigation/**"
-    ]
-  },
   "devDependencies": {
     "eslint": "^4.19.1",
     "eslint-plugin-react": "^7.10.0"
