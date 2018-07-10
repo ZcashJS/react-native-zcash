@@ -595,3 +595,12 @@ Now, rerun `yarn`:
 yarn
 ```
 
+Now to try `getstorybook`. Uses npm by default. `rm package-lock.json`,
+re-run `yarn`.
+
+Now, to start storybook:
+
+```
+yarn storybook
+yarn start  # start an emulator to see hot changes
+```
