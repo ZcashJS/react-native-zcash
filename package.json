@@ -1,6 +1,6 @@
 {
-  "name": "react-native-zcash-wallet",
-  "version": "0.0.1",
+  "name": "react-native-zcash",
+  "version": "0.1.0",
   "description": "React Native Zcash Wallet",
   "scripts": {
     "clean-node": "find . -name 'node_modules' -exec rm -r '{}' \\;",

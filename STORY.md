@@ -557,3 +557,8 @@ that doesn't hoist anything. Let's see ...
 Removing the application as a workspace and then using `link:`
 seems to work great with local modules,
 see `applications/zcash-storybook` which is not a yarn workspace.
+
+
+##### Rename from react-native-zcash-wallet to react-native-zcash
+
+Simply changing the root package.json name and the github repo.
