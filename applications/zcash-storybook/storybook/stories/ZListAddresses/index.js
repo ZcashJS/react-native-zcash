@@ -8,11 +8,13 @@ import getStore from 'state/getStore'
 
 import ZListAddresses from 'components/ZListAddresses'
 
+console.error(process.env)
+
 const testStore = getStore({
   // TODO get these from environment
   auth: {
-    username: 'z',
-    password: 'a',
+    username: process.env.ZCASH_RPC_TEST_USERNAME || '',
+    password: process.env.ZCASH_RPC_TEST_PASSWORD || '',
   },
   client_config: {
     url: 'http://localhost:8232',
