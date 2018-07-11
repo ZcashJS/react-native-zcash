@@ -8,7 +8,7 @@ Only use with testnet tokens for now.
 
 ## Prerequisites
 
-Install git and yarn and Xcode and stuff.
+Install git and yarn and Xcode and stuff. (TODO: hermetic determinism)
 
 ## Installation
 
@@ -42,4 +42,4 @@ Open an emulator to hot-reload the stories.
 Now that you've started the application(s),
 you can edit any of the components and core libraries
 anywhere in the workspace and they will be babelified and repackaged and the
-app will update live! Sweet!
+app(s) will update live! Sweet!
