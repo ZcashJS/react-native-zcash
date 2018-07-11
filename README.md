@@ -20,24 +20,12 @@ yarn
 
 ## Start the ZcashOSX app
 
-The ZcashOSX app must be started before storybook, it seems:
+The ZcashOSX app must be started before storybook, it seems.
+If you want to start the OSX app:
 
 ```
 cd applications/ZcashOSX
 yarn macos
-```
-
-To bypass the auth screen while developing,
-set `REACT_APP_ZCASH_USERNAME` and `REACT_APP_ZCASH_PASSWORD`
-in the `.env` file in the root directory.
-Note: to toggle this with the application running,
-you might need to change and save `core/state/reducers.js`
-to provoke babel to retranspile that file.
-
-You can then ignore your local changes to this file:
-
-```
-git update-index --assume-unchanged .env
 ```
 
 ## Start the Storybook component development environment
@@ -45,7 +33,8 @@ git update-index --assume-unchanged .env
 ```
 cd applications/zcash-storybook
 yarn storybook
-yarn start
+# in another terminal
+yarn start  
 ```
 
 Open an emulator to hot-reload the stories.
