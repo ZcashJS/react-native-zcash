@@ -4,13 +4,24 @@ import { Provider } from 'react-redux'
 
 import { storiesOf } from '@storybook/react-native'
 
-import store from 'state/teststore'
+import getStore from 'state/getStore'
 
 import ZListAddresses from 'components/ZListAddresses'
 
+const testStore = getStore({
+  // TODO get these from environment
+  auth: {
+    username: 'z',
+    password: 'a',
+  },
+  client_config: {
+    url: 'http://localhost:8232',
+  }
+})
+
 
 storiesOf('ZListAddresses', module)
-  .addDecorator(story => <Provider store={store}>{story()}</Provider>)
+  .addDecorator(story => <Provider store={testStore}>{story()}</Provider>)
   .add('Basic', () => 
     <ZListAddresses />
   )
