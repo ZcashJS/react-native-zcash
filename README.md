@@ -1,4 +1,4 @@
-# React Native Zcash Wallet
+# React Native Zcash
 
 This repository uses yarn workspaces and react native. For a blow-by-blow
 account of how I got this working, [see here](STORY.md).
