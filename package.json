@@ -14,7 +14,6 @@
       "core/*",
       "components",
       "applications/ZcashOSX",
-      "applications/ZcashWallet",
       "applications/zcash-storybook"
     ],
     "nohoist": [
