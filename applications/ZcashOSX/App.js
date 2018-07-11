@@ -8,7 +8,7 @@ import { Provider, connect } from 'react-redux'
 import LoginScreen from 'components/LoginScreen'
 import LoggedInContainer from './LoggedInContainer'
 
-import store from 'state/store'
+import getStore from 'state/getStore'
 
 
 class Authed extends Component {
@@ -33,7 +33,7 @@ Authed = connect((state) => {
 export default class App extends Component {
   render() {
     return (
-      <Provider store={store}>
+      <Provider store={getStore()}>
         <Authed />
       </Provider>
     );

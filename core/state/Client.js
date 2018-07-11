@@ -1,6 +1,6 @@
 import stdrpc from 'stdrpc'
 
-import store from 'state/store'
+import getStore from 'state/getStore'
 
 const errorf = (err) => {
   console.warn(err)
@@ -9,7 +9,8 @@ const errorf = (err) => {
 
 class Client {
   constructor() {
-    const { client_config, auth } = store.getState()
+    this.store = getStore()
+    const { client_config, auth } = this.store.getState()
     this.rpc = stdrpc({
       ...auth,
       ...client_config,
@@ -23,7 +24,7 @@ class Client {
 
   z_gettotalbalance() {
     return this.rpc.z_gettotalbalance().then((info) => {
-      store.dispatch({
+      this.store.dispatch({
         type: 'Z_GETTOTALBALANCE',
         info
       })
@@ -32,7 +33,7 @@ class Client {
 
   z_listaddresses() {
     return this.rpc.z_listaddresses().then((addresses) => {
-      store.dispatch({
+      this.store.dispatch({
         type: 'Z_LISTADDRESSES',
         addresses
       })
@@ -41,7 +42,7 @@ class Client {
 
   z_getbalance(address) {
     return this.rpc.z_getbalance(address).then((amount) => {
-      store.dispatch({
+      this.store.dispatch({
         type: 'Z_GETBALANCE',
         address,
         amount
