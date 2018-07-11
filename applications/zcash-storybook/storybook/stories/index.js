@@ -4,6 +4,7 @@ import { Text } from 'react-native'
 import { storiesOf } from '@storybook/react-native'
 
 import './DisplayAddress'
+import './ZListAddresses'
 
 import zest from 'zest'
 

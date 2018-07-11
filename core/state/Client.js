@@ -2,6 +2,10 @@ import stdrpc from 'stdrpc'
 
 import store from 'state/store'
 
+const errorf = (err) => {
+  console.warn(err)
+  return err
+}
 
 class Client {
   constructor() {
@@ -23,7 +27,7 @@ class Client {
         type: 'Z_GETTOTALBALANCE',
         info
       })
-    })
+    }).catch(errorf)
   }
 
   z_listaddresses() {
@@ -32,7 +36,7 @@ class Client {
         type: 'Z_LISTADDRESSES',
         addresses
       })
-    })
+    }).catch(errorf)
   }
 
   z_getbalance(address) {
@@ -42,17 +46,14 @@ class Client {
         address,
         amount
       })
-    })
+    }).catch(errorf)
   }
 
   z_sendmany(from, amounts, minconf=1, fee=0.0001) {
     // console.warn(from, amounts, minconf, fee)
     return this.rpc.z_sendmany(
       from, amounts, minconf, fee
-    ).catch((err) => {
-      console.warn('ERROR', err)
-      return err
-    })
+    ).catch(errorf)
   }
 
   z_shieldcoinbase(from, to) {
@@ -61,10 +62,7 @@ class Client {
         type: 'Z_SHIELDCOINBASE',
         result
       })
-    }).catch((err) => {
-      console.warn('ERROR', err)
-      return err
-    })
+    }).catch(errorf)
   }
 }
 

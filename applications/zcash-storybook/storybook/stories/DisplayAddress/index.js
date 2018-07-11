@@ -1,11 +1,6 @@
 import React from 'react'
-import {
-  Text,
-  View,
-} from 'react-native'
 
 import { storiesOf } from '@storybook/react-native'
-
 import DisplayAddress from 'components/DisplayAddress'
 
 
