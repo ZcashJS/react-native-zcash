@@ -22,6 +22,17 @@ class Client {
     this.z_listaddresses()
   }
 
+  listtransactions(count = 10, from = 0, includeWatchOnly = false) {
+    return this.rpc.listtransactions(
+      '*', count, from, includeWatchOnly
+    ).then((transactions) => {
+      this.store.dispatch({
+      type: 'LISTTRANSACTIONS',
+        transactions,
+      })
+    }).catch(errorf)
+  }
+
   z_gettotalbalance() {
     return this.rpc.z_gettotalbalance().then((info) => {
       this.store.dispatch({

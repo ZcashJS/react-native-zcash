@@ -5,6 +5,7 @@ import { storiesOf } from '@storybook/react-native'
 
 import './DisplayAddress'
 import './DisplayBalance'
+import './ListTransactions'
 import './ZGetTotalBalance'
 import './ZListAddresses'
 
