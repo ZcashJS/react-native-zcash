@@ -5,12 +5,19 @@ import {
   Text,
 } from 'react-native'
 
+import { TO_FIXED_PRECISION } from 'lib/constants'
+
+
 const styles = StyleSheet.create({
   container: {
     padding: 10,
   },
+  title: {
+    fontSize: 23,
+    paddingBottom: 10,
+  },
   text: {
-    padding: 5,
+    paddingBottom: 5,
   }
 })
 
@@ -19,11 +26,17 @@ export default class DisplayBalance extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>{this.props.name}</Text>
+        <Text style={styles.title}>{this.props.name}</Text>
         <View>
-          <Text style={styles.text}>Transparent: {this.props.balance.transparent}</Text>
-          <Text style={styles.text}>Private: {this.props.balance.private}</Text>
-          <Text style={styles.text}>Total: {this.props.balance.total}</Text>
+          <Text style={styles.text}>
+            Transparent: {parseFloat(this.props.balance.transparent).toFixed(TO_FIXED_PRECISION)}
+          </Text>
+          <Text style={styles.text}>
+            Private: {parseFloat(this.props.balance.private).toFixed(TO_FIXED_PRECISION)}
+          </Text>
+          <Text style={styles.text}>
+            Total: {parseFloat(this.props.balance.total).toFixed(TO_FIXED_PRECISION)}
+          </Text>
         </View>
       </View>
     )
