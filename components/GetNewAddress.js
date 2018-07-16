@@ -1,7 +1,7 @@
 import React from 'react'
 import {
   StyleSheet,
-  View, 
+  View,
   Text,
   Button,
 } from 'react-native'
@@ -38,7 +38,7 @@ class GetNewAddress extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        {this.state.newaddress && 
+        {this.state.newaddress &&
           <Text>{this.state.newaddress}</Text>}
         }
         <Button
@@ -53,6 +53,6 @@ class GetNewAddress extends React.Component {
 
 export default connect((state) => {
   return {
-    auth: state.auth,
+    auth: state.zcash_auth,
   }
 })(GetNewAddress)

@@ -8,7 +8,7 @@ import { Provider, connect } from 'react-redux'
 import LoginScreen from 'components/LoginScreen'
 import LoggedInContainer from './LoggedInContainer'
 
-import getStore from 'state/getStore'
+import getStore from 'zcash-redux/getStore'
 
 
 class Authed extends Component {
@@ -25,7 +25,7 @@ class Authed extends Component {
 }
 Authed = connect((state) => {
   return {
-    auth: state.auth
+    auth: state.zcash_auth,
   }
 })(Authed)
 

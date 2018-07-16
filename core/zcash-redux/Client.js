@@ -1,6 +1,6 @@
 import stdrpc from 'stdrpc'
 
-import getStore from 'state/getStore'
+import getStore from 'zcash-redux/getStore'
 
 const errorf = (err) => {
   console.warn(err)
@@ -10,16 +10,11 @@ const errorf = (err) => {
 class Client {
   constructor() {
     this.store = getStore()
-    const { client_config, auth } = this.store.getState()
+    const { zcash_client_config, zcash_auth } = this.store.getState()
     this.rpc = stdrpc({
-      ...auth,
-      ...client_config,
+      ...zcash_auth,
+      ...zcash_client_config,
     })
-  }
-
-  start() {
-    this.z_gettotalbalance()
-    this.z_listaddresses()
   }
 
   listtransactions(count = 10, from = 0, includeWatchOnly = false) {

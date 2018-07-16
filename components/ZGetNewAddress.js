@@ -54,6 +54,6 @@ class ZGetNewAddress extends React.Component {
 
 export default connect((state) => {
   return {
-    auth: state.auth,
+    auth: state.zcash_auth,
   }
 })(ZGetNewAddress)

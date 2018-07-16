@@ -1,7 +1,7 @@
 import React from 'react'
 import {
   StyleSheet,
-  View, 
+  View,
   Text
 } from 'react-native'
 import { connect } from 'react-redux'
@@ -57,6 +57,6 @@ class GetBestBlockHash extends React.Component {
 
 export default connect((state) => {
   return {
-    auth: state.auth,
+    auth: state.zcash_auth,
   }
 })(GetBestBlockHash)

@@ -7,7 +7,7 @@ import {
 import { connect } from 'react-redux'
 
 import DisplayBalance from 'components/DisplayBalance'
-import Client from 'state/Client'
+import Client from 'zcash-redux/Client'
 
 
 const styles = StyleSheet.create({
@@ -24,7 +24,6 @@ class ZGetTotalBalance extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        {/* <Text>{JSON.stringify(this.props.auth)}</Text> */}
         <DisplayBalance
           name={"ZGetTotalBalance"}
           balance={this.props.z_gettotalbalance}
@@ -37,6 +36,5 @@ class ZGetTotalBalance extends React.Component {
 export default connect((state) => {
   return {
     z_gettotalbalance: state.z_gettotalbalance,
-    // auth: state.auth,
   }
 })(ZGetTotalBalance)

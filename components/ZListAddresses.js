@@ -6,7 +6,7 @@ import {
 } from 'react-native'
 import { connect } from 'react-redux'
 
-import Client from 'state/Client'
+import Client from 'zcash-redux/Client'
 import ZGetBalance from 'components/ZGetBalance'
 
 

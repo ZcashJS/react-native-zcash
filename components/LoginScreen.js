@@ -20,16 +20,9 @@ class LoginScreen extends Component {
 
   handleSubmit() {
     this.props.dispatch({
-      type: 'SET_AUTH',
+      type: 'SET_ZCASH_AUTH',
       ...this.state,
     })
-    // TODO: expose this on the client
-    // this.props.dispatch({
-    //   type: 'SET_CLIENT_CONFIG',
-    //   client_config: {
-    //     url: 'http://localhost:8232',
-    //   },
-    // })
   }
 
   render() {

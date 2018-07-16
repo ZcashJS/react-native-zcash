@@ -5,14 +5,14 @@ let default_auth = {
   password: '',
 }
 
-const auth = (state = default_auth, action) => {
+const zcash_auth = (state = default_auth, action) => {
   switch (action.type) {
-    case 'SET_AUTH':
+    case 'SET_ZCASH_AUTH':
       return {
         username: action.username,
         password: action.password,
       }
-    case 'UNSET_AUTH':
+    case 'UNSET_ZCASH_AUTH':
       return {}
     default:
       return state
@@ -22,9 +22,9 @@ const auth = (state = default_auth, action) => {
 const default_client_config = {
   url: 'http://localhost:8232'
 }
-const client_config = (state = default_client_config, action) => {
+const zcash_client_config = (state = default_client_config, action) => {
   switch (action.type) {
-    case 'SET_CLIENT_CONFIG':
+    case 'SET_ZCASH_CLIENT_CONFIG':
       return action.client_config
     default:
       return state
@@ -102,8 +102,8 @@ const z_shieldcoinbase = (state = {}, action) => {
 }
 
 export default combineReducers({
-  auth,
-  client_config,
+  zcash_auth,
+  zcash_client_config,
   listtransactions,
   transactions,
   z_gettotalbalance,

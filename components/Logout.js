@@ -14,7 +14,7 @@ class Logout extends Component {
       <View>
         <Button
           title="Logout"
-          onPress={() => this.props.dispatch({type: 'UNSET_AUTH'})}
+          onPress={() => this.props.dispatch({type: 'UNSET_ZCASH_AUTH'})}
         />
       </View>
     )

@@ -1,0 +1,10 @@
+{
+  "name": "zcash-redux",
+  "version": "0.1.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "redux": "^4.0.0",
+    "stdrpc": "^1.0.0"
+  }
+}

@@ -6,14 +6,14 @@ import { storiesOf } from '@storybook/react-native'
 import ZGetTotalBalance from 'components/ZGetTotalBalance'
 
 // TODO: abstract all of this redux testing stuff away properly
-import getStore from 'state/getStore'
+import getStore from 'zcash-redux/getStore'
 
 const testStore = getStore({
-  auth: {
+  zcash_auth: {
     username: 'z',
     password: 'a',
   },
-  client_config: {
+  zcash_client_config: {
     url: 'http://localhost:8232',
   }
 })
