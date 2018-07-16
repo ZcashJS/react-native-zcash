@@ -9,11 +9,11 @@ import ZGetOperationStatus from 'components/ZGetOperationStatus'
 import ZShieldCoinbase from 'components/ZShieldCoinbase'
 
 
-export default class HistoryContainer extends Component {
+export default class WalletScreen extends Component {
   render() {
     return (
       <View>
-        <Text>History</Text>
+        <Text>Wallet</Text>
         <ZGetOperationStatus />
         {/* TODO: how to know if there is anything to shield? */}
         <ZShieldCoinbase />

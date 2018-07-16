@@ -9,14 +9,17 @@ import { connect } from 'react-redux'
 
 import Client from 'state/Client'
 
+import DisplayTransaction from 'components/stateless/DisplayTransaction'
+
 
 const styles = StyleSheet.create({
   container: {
-    // height: 200,
-    // width: '100%',
-    flex: 1,
-    borderWidth: StyleSheet.hairlineWidth,
-    borderColor: 'red',
+    // height: 300,
+    // width: 100,
+    // flex: 1,
+    // borderWidth: StyleSheet.hairlineWidth,
+    // borderColor: 'red',
+    // overflow: 'scroll',
   },
 })
 
@@ -30,8 +33,9 @@ class ListTransactions extends React.Component {
   render() {
     return (
       <ScrollView contentContainerStyle={styles.container}>
-          <Text>{JSON.stringify(this.props.listtransactions)}</Text>
-          <Text>{JSON.stringify(this.props.transactions)}</Text>
+        {this.props.listtransactions.map((tx) => {
+          return <DisplayTransaction key={tx.txid} transaction={tx} />
+        })}
       </ScrollView>
     )
   }
@@ -39,7 +43,9 @@ class ListTransactions extends React.Component {
 
 export default connect((state) => {
   return {
+    // just the list of transactions in the last call to the daemon
     listtransactions: state.listtransactions,
-    transactions: state.transactions,
+    // hash of all known transactions
+    // transactions: state.transactions,
   }
 })(ListTransactions)

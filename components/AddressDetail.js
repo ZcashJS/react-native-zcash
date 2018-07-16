@@ -7,7 +7,7 @@ import {
   View,
 } from 'react-native'
 
-import DisplayAddress from 'components/DisplayAddress'
+import DisplayAddress from 'components/stateless/DisplayAddress'
 
 const styles = StyleSheet.create({
   container: {

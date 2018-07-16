@@ -13,7 +13,7 @@ import { createBottomTabNavigator } from 'react-navigation'
 // import Logout from 'components/Logout'
 import NetWorkScreen from 'components/NetworkScreen'
 import XferScreen from 'components/XferScreen'
-import HistoryScreen from 'components/HistoryScreen'
+import WalletScreen from 'components/WalletScreen'
 
 const stack = {
   Network: {
@@ -23,7 +23,7 @@ const stack = {
     screen: XferScreen,
   },
   Wallet: {
-    screen: HistoryScreen,
+    screen: WalletScreen,
   }
 }
 const options = {

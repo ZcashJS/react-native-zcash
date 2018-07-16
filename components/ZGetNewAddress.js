@@ -1,13 +1,13 @@
 import React from 'react'
 import {
   StyleSheet,
-  View, 
+  View,
   Button,
 } from 'react-native'
 import { connect } from 'react-redux'
 import stdrpc from 'stdrpc'
 
-import DisplayAddress from 'components/DisplayAddress'
+import DisplayAddress from 'components/stateless/DisplayAddress'
 
 const styles = StyleSheet.create({
   container: {
@@ -39,7 +39,7 @@ class ZGetNewAddress extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        {this.state.newaddress && 
+        {this.state.newaddress &&
           <DisplayAddress address={this.state.newaddress} />
         }
         <Button
