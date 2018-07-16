@@ -28,7 +28,7 @@ class ListTransactions extends React.Component {
     const client = new Client()
     // TODO: get more than we want and then paginate?
     // How to know when there are more that we don't have?
-    client.listtransactions()
+    client.listtransactions(100)
   }
   render() {
     return (

@@ -7,6 +7,8 @@ import {
 
 import { TO_FIXED_PRECISION } from 'lib/constants'
 
+import DisplayAddress from 'components/stateless/DisplayAddress'
+
 
 const styles = StyleSheet.create({
   container: {
@@ -14,12 +16,15 @@ const styles = StyleSheet.create({
   },
 })
 
-// TODO: functional stateless component?
 export default class DisplayTransaction extends React.Component {
   render() {
+    const tx = this.props.transaction
     return (
       <View style={styles.container}>
-        <Text>{JSON.stringify(this.props.transaction)}</Text>
+        <Text>Generate</Text>
+        <DisplayAddress address={tx.address} />
+        <Text>Amount: {tx.amount.toFixed(TO_FIXED_PRECISION)}</Text>
+        <Text>Confirmations: {tx.confirmations}</Text>
       </View>
     )
   }
