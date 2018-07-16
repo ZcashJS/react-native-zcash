@@ -25,6 +25,7 @@ class Client {
       type: 'LISTTRANSACTIONS',
         transactions,
       })
+      return transactions
     }).catch(errorf)
   }
 
@@ -34,6 +35,7 @@ class Client {
         type: 'Z_GETTOTALBALANCE',
         info
       })
+      return info
     }).catch(errorf)
   }
 
@@ -43,6 +45,7 @@ class Client {
         type: 'Z_LISTADDRESSES',
         addresses
       })
+      return addresses
     }).catch(errorf)
   }
 
@@ -53,6 +56,7 @@ class Client {
         address,
         amount
       })
+      return amount
     }).catch(errorf)
   }
 
@@ -69,9 +73,9 @@ class Client {
         type: 'Z_SHIELDCOINBASE',
         result
       })
+      return result
     }).catch(errorf)
   }
 }
 
-// export default new Client()
 export default Client

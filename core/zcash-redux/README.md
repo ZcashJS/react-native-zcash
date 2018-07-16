@@ -69,7 +69,10 @@ client.dispatch({
 Now you can interact with zcashd:
 
 ```
-client.z_gettotalbalance()
+client.z_gettotalbalance().then((info) => {
+  console.log(info)
+  // ...
+})
 ```
 
 This stores the return data in an attribute of the same name.
